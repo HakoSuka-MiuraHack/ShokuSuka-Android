@@ -2,4 +2,5 @@
     <string name="app_name">ShokuSuka</string>
     <string name="facebook_app_id">1121827291273203</string>
     <string name="logout">Logout</string>
+    <string name="post">投稿</string>
 </resources>
