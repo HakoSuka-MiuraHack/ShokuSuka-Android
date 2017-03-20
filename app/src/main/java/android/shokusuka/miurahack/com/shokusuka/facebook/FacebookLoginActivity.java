@@ -100,11 +100,9 @@ public class FacebookLoginActivity extends AppCompatActivity {
             }
         });
 
-        // Callback registration
         fbLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(final LoginResult loginResult) {
-                // App code
                 Log.d("Facebook", loginResult.getAccessToken().getUserId());
 
                 Toast.makeText(
@@ -116,7 +114,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                // App code
                 Toast.makeText(
                         FacebookLoginActivity.this,
                         R.string.cancel,
@@ -125,7 +122,6 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
             @Override
             public void onError(final FacebookException exception) {
-                // App code
                 Toast.makeText(
                         FacebookLoginActivity.this,
                         R.string.error,
@@ -183,7 +179,12 @@ public class FacebookLoginActivity extends AppCompatActivity {
 
                 if (readPermsArr != null) {
                     if(readPermsArr.length > 0) {
-                        fbLoginButton.setReadPermissions(readPermsArr);
+
+                        fbLoginButton.setReadPermissions(
+                                "public_profile",
+                                "user_posts",
+                                "publish_actions"
+                        );
                     }
                 }
 
@@ -194,7 +195,7 @@ public class FacebookLoginActivity extends AppCompatActivity {
                         fbLoginButton.setPublishPermissions(publishPermsArr);
                     }
                 }
-                // Set write privacy for the user
+
                 if ((writePrivacy != null)) {
                     DefaultAudience audience;
                     if (DefaultAudience.EVERYONE.toString().equals(writePrivacy)) {
