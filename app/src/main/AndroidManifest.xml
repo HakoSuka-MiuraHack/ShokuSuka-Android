@@ -95,7 +95,7 @@
         <!-- <data android:scheme="@string/ak_login_protocol_scheme" /> -->
         <!-- </intent-filter> -->
         <!-- </activity> -->
-        <activity android:name=".accountkit.AccountKitLoginActivity" />
+        <!--<activity android:name=".accountkit.AccountKitLoginActivity" />-->
         <activity android:name=".facebook.FacebookPostActivity" />
         <activity android:name=".facebook.FacebookShareActivity" />
     </application>
