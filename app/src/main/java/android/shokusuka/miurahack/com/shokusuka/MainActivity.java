@@ -4,11 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.shokusuka.miurahack.com.shokusuka.facebook.FacebookLoginActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-
-import com.facebook.AccessToken;
+import android.widget.ListView;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 
@@ -19,12 +18,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (AccessToken.getCurrentAccessToken() != null) {
-            Log.d("Facebook", "AccessToken: " + AccessToken.getCurrentAccessToken().toString());
-        }
+        PictureInfoAdapter adapter = new PictureInfoAdapter(getApplicationContext());
 
-        initFacebookLogin();
-        initFacebookPost();
+        for (int i = 0 ; i < 10 ;  i++)
+            adapter.add(new PictureInfo(i,"UserName"+i,"PictureUrl"+i,"MainText"+i));
+
+        int padding = (int) (getResources().getDisplayMetrics().density * 8);
+        ListView listView = (ListView) findViewById(R.id.list_item);
+        listView.setPadding(padding, 0, padding, 0);
+        listView.setScrollBarStyle(ListView.SCROLLBARS_OUTSIDE_OVERLAY);
+        listView.setDivider(null);
+
+        LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
+//        View header = inflater.inflate(R.layout.list_header_footer, listView, false);
+//        View footer = inflater.inflate(R.layout.list_header_footer, listView, false);
+//        listView.addHeaderView(header, null, false);
+//        listView.addFooterView(footer, null, false);
+        listView.setAdapter(adapter);
+
+
+
+//        if (AccessToken.getCurrentAccessToken() != null) {
+//            Log.d("Facebook", "AccessToken: " + AccessToken.getCurrentAccessToken().toString());
+//        }
+
+//        initFacebookLogin();
+//        initFacebookPost();
     }
 
     private void initFacebookLogin() {
