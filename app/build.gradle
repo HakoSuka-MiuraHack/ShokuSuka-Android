@@ -34,5 +34,6 @@ dependencies {
     compile 'com.amazonaws:aws-android-sdk-core:[2.2,3.0)'
     compile 'com.amazonaws:aws-android-sdk-s3:[2.2,3.0)'
     compile 'com.amazonaws:aws-android-sdk-pinpoint:[2.2,3.0)'
+    compile 'org.facebook4j:facebook4j-core:[2.4,)'
     testCompile 'junit:junit:4.12'
 }

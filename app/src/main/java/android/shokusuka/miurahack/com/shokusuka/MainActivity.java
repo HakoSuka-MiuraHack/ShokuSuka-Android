@@ -2,36 +2,28 @@ package android.shokusuka.miurahack.com.shokusuka;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.shokusuka.miurahack.com.shokusuka.facebook.FacebookLoginActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.facebook.AccessToken;
-import com.facebook.login.LoginManager;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        checkFacebookLogin();
-        setLogoutButton();
+        initFacebookLogin();
     }
 
-    private void checkFacebookLogin() {
-        if (AccessToken.getCurrentAccessToken() == null) {
-            startActivity(new Intent(getApplication(), FacebookLoginActivity.class));
-        }
-    }
-
-    private void setLogoutButton() {
-        findViewById(R.id.logout_button).setOnClickListener(new View.OnClickListener() {
+    private void initFacebookLogin() {
+        final Button fbLoginButton = (Button) findViewById(R.id.fb_login_button);
+        fbLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                LoginManager.getInstance().logOut();
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FacebookLoginActivity.class));
             }
         });
-
     }
 }
