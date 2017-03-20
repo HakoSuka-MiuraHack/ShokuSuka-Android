@@ -56,12 +56,12 @@
     android:scaleType="fitCenter"
     android:src="@drawable/camera" />
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/toPostButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="投稿する" />
 
         <!--<EditText-->
     <!--android:layout_width="match_parent"-->

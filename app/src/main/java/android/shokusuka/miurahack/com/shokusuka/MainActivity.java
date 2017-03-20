@@ -12,12 +12,21 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 
 public class MainActivity extends AppCompatActivity {
-
+Button toPostButton;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toPostButton = (Button)findViewById(R.id.toPostButton);
+        toPostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // クリック時の処理
+                Intent intent = new Intent(MainActivity.this,MainActivity.class );
+                startActivity(intent);
+            }
+        });
         PictureInfoAdapter adapter = new PictureInfoAdapter(getApplicationContext());
 
         for (int i = 0 ; i < 10 ;  i++)
