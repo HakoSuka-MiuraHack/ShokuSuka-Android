@@ -23,7 +23,7 @@ Button toPostButton;
             @Override
             public void onClick(View v) {
                 // クリック時の処理
-                Intent intent = new Intent(MainActivity.this,MainActivity.class );
+                Intent intent = new Intent(getApplication(), PostActivity.class);
                 startActivity(intent);
             }
         });
