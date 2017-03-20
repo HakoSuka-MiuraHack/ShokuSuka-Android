@@ -1,14 +1,10 @@
 package android.shokusuka.miurahack.com.shokusuka;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.shokusuka.miurahack.com.shokusuka.facebook.FacebookLoginActivity;
-import android.shokusuka.miurahack.com.shokusuka.facebook.FacebookPostTask;
-import android.shokusuka.miurahack.com.shokusuka.facebook.FacebookShareActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
